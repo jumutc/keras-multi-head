@@ -66,9 +66,6 @@ class MultiHeadAttention(keras.layers.Layer):
         return dict(list(base_config.items()) + list(config.items()))
 
     def compute_output_shape(self, input_shape):
-        if isinstance(input_shape, list):
-            q, k, v = input_shape
-            return q[:-1] + (v[-1],)
         return input_shape
 
     def compute_mask(self, inputs, input_mask=None):
