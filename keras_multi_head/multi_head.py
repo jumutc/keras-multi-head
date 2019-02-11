@@ -113,7 +113,7 @@ class MultiHead(keras.layers.Wrapper):
             self.layers = [copy.deepcopy(self.layer) for _ in range(self.layer_num)]
         if self.hidden_dim is not None:
             self.W = self.add_weight(
-                shape=(input_shape[-1], self.hidden_dim * self.layer_num),
+                shape=(int(input_shape[-1]), self.hidden_dim * self.layer_num),
                 name='{}_W'.format(self.name),
                 initializer=keras.initializers.get('uniform'),
             )
